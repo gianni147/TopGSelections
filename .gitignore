@@ -1,0 +1,12 @@
+# Ignore generated CSS file
+assets/styles/common/main.css
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore other potential files/directories
+.DS_Store
+.idea/
+.vscode/
+dist/
+build/
