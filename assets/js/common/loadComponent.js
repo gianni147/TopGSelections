@@ -21,5 +21,5 @@ export const loadComponent = (elementId, filePath, activeNavId = null) => {
                     initializeThemeToggle();
                 }
             });
-    }, 500);
+    }, 300);
 };

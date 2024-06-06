@@ -5,7 +5,7 @@ import { getCurrentPage } from './common/utils.js';
 document.addEventListener('DOMContentLoaded', () => {
     const page = getCurrentPage();
     loadComponent('header-placeholder', 'components/header.html');
-    setActiveNavLink(page); // Ensure active link is set after header is loaded
+    setActiveNavLink(page);
     loadComponent('content-placeholder', `pages/${page}.html`, page);
     loadComponent('footer-placeholder', 'components/footer.html');
     if (page === 'home') {
