@@ -1,4 +1,41 @@
+// Primary Colors
 $main-color: #dcac67;
 $main-light-color: #f1ce87;
 $secondary-color: #c0bfc3;
+
+// Text Colors
 $text-color: #000000;
+$text-light-color: #ffffff;
+
+// Background Colors
+$background-color: #f5f5f5;
+$background-dark-color: #333333;
+
+// Accent Colors
+$accent-color: #8b0000;
+$accent-light-color: #ff6347;
+
+// Dark Mode
+:root {
+  --main-color: #dcac67;
+  --main-light-color: #f1ce87;
+  --secondary-color: #c0bfc3;
+  --text-color: #000000;
+  --text-light-color: #ffffff;
+  --background-color: #f5f5f5;
+  --background-dark-color: #333333;
+  --accent-color: #8b0000;
+  --accent-light-color: #ff6347;
+}
+
+[data-theme='dark'] {
+  --main-color: #f1ce87;
+  --main-light-color: #dcac67;
+  --secondary-color: #555555;
+  --text-color: #ffffff;
+  --text-light-color: #000000;
+  --background-color: #333333;
+  --background-dark-color: #000000;
+  --accent-color: #ff6347;
+  --accent-light-color: #8b0000;
+}

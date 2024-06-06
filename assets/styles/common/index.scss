@@ -1,0 +1,25 @@
+@import '../components/header';
+@import '../components/footer';
+@import '../pages/home';
+@import '../pages/sport';
+@import '../pages/shop';
+
+.content {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+  &.fade-in {
+    opacity: 1;
+  }
+
+  &.fade-out {
+    opacity: 0;
+  }
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

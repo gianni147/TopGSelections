@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch assets/styles/common/main.scss:assets/styles/common/main.css",
+    "sass": "sass assets/styles/common/main.scss:assets/styles/common/main.css",
     "sass:build": "sass assets/styles/common/main.scss:assets/styles/common/main.css"
   },
   "keywords": [],
