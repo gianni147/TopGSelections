@@ -307,12 +307,36 @@ template {
   display: none;
 }
 
+:root {
+  --main-color: #dcac67;
+  --main-light-color: #f1ce87;
+  --secondary-color: #c0bfc3;
+  --text-color: #000000;
+  --text-light-color: #ffffff;
+  --background-color: #f5f5f5;
+  --background-dark-color: #333333;
+  --accent-color: #8b0000;
+  --accent-light-color: #ff6347;
+}
+
+[data-theme=dark] {
+  --main-color: #f1ce87;
+  --main-light-color: #dcac67;
+  --secondary-color: #555555;
+  --text-color: #ffffff;
+  --text-light-color: #000000;
+  --background-color: #333333;
+  --background-dark-color: #000000;
+  --accent-color: #ff6347;
+  --accent-light-color: #8b0000;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #dcac67;
+  background-color: var(--main-color);
 }
 .header__logo img {
   width: 100px;
@@ -326,19 +350,31 @@ template {
 }
 .header__nav-link {
   text-decoration: none;
-  color: #000000;
+  color: var(--text-light-color);
   font-weight: bold;
 }
 .header__nav-link--active {
+  color: var(--accent-light-color);
   pointer-events: none;
-  color: #f1ce87;
+}
+.header .theme-toggle {
+  background-color: var(--accent-color);
+  color: var(--text-light-color);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.header .theme-toggle:hover {
+  background-color: var(--accent-light-color);
 }
 
 .footer {
   padding: 20px;
   text-align: center;
-  background-color: #c0bfc3;
-  color: #000000;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -359,18 +395,82 @@ template {
 }
 .footer__nav-link {
   text-decoration: none;
-  color: #000000;
+  color: var(--text-color);
+}
+.footer__nav-link:hover {
+  color: var(--accent-color);
+}
+
+.home {
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+.home h1, .home h2, .home h3, .home h4, .home h5, .home h6 {
+  color: var(--accent-color);
+}
+.home p {
+  color: var(--text-color);
+}
+.home a {
+  color: var(--main-color);
+}
+.home a:hover {
+  color: var(--accent-color);
+}
+
+.sport {
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+.sport h1, .sport h2, .sport h3, .sport h4, .sport h5, .sport h6 {
+  color: var(--accent-color);
+}
+.sport p {
+  color: var(--text-color);
+}
+.sport a {
+  color: var(--main-color);
+}
+.sport a:hover {
+  color: var(--accent-color);
+}
+
+.shop {
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+.shop h1, .shop h2, .shop h3, .shop h4, .shop h5, .shop h6 {
+  color: var(--accent-color);
+}
+.shop p {
+  color: var(--text-color);
+}
+.shop a {
+  color: var(--main-color);
+}
+.shop a:hover {
+  color: var(--accent-color);
 }
 
 .content {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 .content.fade-in {
   opacity: 1;
 }
 .content.fade-out {
   opacity: 0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 /*# sourceMappingURL=main.css.map */
