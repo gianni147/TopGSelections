@@ -1,3 +1,4 @@
 export const getCurrentPage = () => {
-    return location.hash.substring(1) || 'home';
+    const path = window.location.hash.substring(1);
+    return path || 'home';
 };

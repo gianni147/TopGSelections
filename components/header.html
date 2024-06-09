@@ -2,12 +2,23 @@
     <div class="header__logo">
         <img src="assets/images/logo.jpeg" alt="TopGSelections Logo">
     </div>
-    <nav class="header__nav">
-        <ul class="header__nav-list">
-            <li class="header__nav-item"><a href="#" class="header__nav-link" data-page="home">Home</a></li>
-            <li class="header__nav-item"><a href="#" class="header__nav-link" data-page="sport">Sport</a></li>
-            <li class="header__nav-item"><a href="#" class="header__nav-link" data-page="shop">Shop</a></li>
-        </ul>
-    </nav>
-    <button id="theme-toggle" class="theme-toggle">Toggle Theme</button>
+    <div class="header__menu-title">
+        Top-G-Selections
+    </div>
+    <div class="header__menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+    <ul class="header__nav nav" id="nav-menu">
+        <li class="header__nav-item"><a href="#" class="header__nav-link" data-page="home">Home</a></li>
+        <li class="header__nav-item"><a href="#" class="header__nav-link" data-page="sport">Sport</a></li>
+        <li class="header__nav-item"><a href="#" class="header__nav-link" data-page="shop">Shop</a></li>
+        <li class="header__nav-item header__nav-toggle--mobile">
+            <button id="theme-toggle" class="theme-toggle">X</button>
+        </li>
+    </ul>
+    <div class="header__nav-toggle header__nav-toggle--desktop">
+        <button id="theme-toggle-desktop" class="theme-toggle">X</button>
+    </div>
 </header>

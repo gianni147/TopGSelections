@@ -7,6 +7,7 @@ export const handleNavClick = (page) => {
         history.pushState(null, '', `#${page}`);
     }
     loadComponent('content-placeholder', `pages/${page}.html`, page);
+    setActiveNavLink(page);
 };
 
 export const setActiveNavLink = (page) => {

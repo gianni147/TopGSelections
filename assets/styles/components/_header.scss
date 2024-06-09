@@ -1,47 +1,176 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: var(--main-color);
+@import '../common/variables';
+@import '../common/mixins';
 
-  &__logo img {
-    width: 100px;
+.header {
+  background-color: var(--main-color);
+  display: flex;
+  align-items: center;
+  height: 50px;
+  justify-content: space-between;
+
+  &__logo {
+    display: inherit;
+    justify-content: center;
+    width: 50px;
+
+    img {
+      height: 40px;
+    }
   }
 
-  &__nav {
-    &-list {
-      display: flex;
-      list-style: none;
+  &__menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  &__menu-toggle.is-active .bar:nth-child(1) {
+    -webkit-transform: translateY(8px) rotate(45deg);
+    -ms-transform: translateY(8px) rotate(45deg);
+    -o-transform: translateY(8px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  &__menu-toggle.is-active .bar:nth-child(3) {
+    -webkit-transform: translateY(-8px) rotate(-45deg);
+    -ms-transform: translateY(-8px) rotate(-45deg);
+    -o-transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  &__menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #3f3f3f;
+    margin: 2.5px 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+
+    @include media-query('small') {
+      display: block;
+    }
+  }
+
+  &__menu {
+    &-toggle {
+      display: none;
+      margin-right: 25px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      @include media-query('small') {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
     }
 
-    &-item {
-      margin-right: 20px;
-    }
+    &-title {
+      display: none;
+      font-size: 25px;
 
-    &-link {
-      text-decoration: none;
-      color: var(--text-light-color);
-      font-weight: bold;
-
-      &--active {
-        color: var(--accent-light-color);
-        pointer-events: none;
+      @include media-query('small') {
+        display: inherit;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        color: #000;
       }
     }
   }
 
-  .theme-toggle {
-    background-color: var(--accent-color);
-    color: var(--text-light-color);
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    padding: 0;
+    list-style: none;
 
-    &:hover {
-      background-color: var(--accent-light-color);
+    @include media-query('small') {
+      flex-direction: column;
+      position: fixed;
+      justify-content: start;
+      top: 50px;
+      left: -100%;
+      background-color: var(--main-color);
+      height: calc(100vh - 50px);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      text-align: center;
+      overflow: hidden;
+      gap: 0;
+      margin: 0;
     }
+
+    &-active {
+      transform: translateX(0);
+      left: 0;
+    }
+
+    &-link {
+      color: #000;
+      text-decoration: none;
+      transition: color 0.3s ease-out;
+
+      &:hover {
+        color: var(--accent-color);
+      }
+
+      &--active {
+        pointer-events: none;
+        color: var(--accent-color);
+        font-weight: bold;
+      }
+    }
+
+    &-item {
+      font-size: 25px;
+
+      @include media-query('small') {
+        padding: 15px;
+
+        &:first-child {
+          margin-top: 50px;
+        }
+      }
+    }
+
+    &-toggle--mobile {
+      display: none;
+
+      @include media-query('small') {
+        display: block;
+      }
+    }
+  }
+
+  &__nav-toggle {
+    display: none;
+    align-items: center;
+
+    &--desktop {
+      display: flex;
+
+      @include media-query('small') {
+        display: none;
+      }
+    }
+  }
+}
+
+.theme-toggle {
+  background-color: var(--accent-color);
+  color: var(--text-light-color);
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  width: 50px;
+
+  &:hover {
+    background-color: var(--accent-light-color);
   }
 }

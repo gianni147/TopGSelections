@@ -1,6 +1,7 @@
 import { loadComponent } from './common/loadComponent.js';
 import { handleNavClick, setActiveNavLink } from './components/header/navigation.js';
 import { getCurrentPage } from './common/utils.js';
+import { initializeThemeToggle } from './components/header/themeToggle.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const page = getCurrentPage();
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (page === 'home') {
         history.replaceState(null, '', '/');
     }
+    initializeThemeToggle();
 });
 
 document.addEventListener('click', (e) => {
