@@ -308,55 +308,59 @@ template {
 }
 
 :root {
-  --main-color: #dcac67;
-  --main-light-color: #f1ce87;
-  --secondary-color: #c0bfc3;
+  --primary-color: #DCAC67;
+  --primary-light-color: #F1CE87;
+  --secondary-color: #FFFFFF;
+  --secondary-dark-color: #1D1D1D;
   --text-color: #000000;
-  --text-light-color: #ffffff;
-  --background-color: #f5f5f5;
+  --text-light-color: #FFFFFF;
+  --background-color: #FFF;
   --background-dark-color: #333333;
-  --accent-color: #8b0000;
-  --accent-light-color: #ff6347;
+  --accent-color: #8B0000;
+  --accent-light-color: #FF6347;
 }
 
 [data-theme=dark] {
-  --main-color: #f1ce87;
-  --main-light-color: #dcac67;
-  --secondary-color: #555555;
-  --text-color: #ffffff;
+  --primary-color: #F1CE87;
+  --primary-light-color: #DCAC67;
+  --secondary-color: #1D1D1D;
+  --secondary-dark-color: #333333;
+  --text-color: #FFFFFF;
   --text-light-color: #000000;
   --background-color: #333333;
-  --background-dark-color: #000000;
-  --accent-color: #ff6347;
-  --accent-light-color: #8b0000;
+  --background-dark-color: #1D1D1D;
+  --accent-color: #FF6347;
+  --accent-light-color: #8B0000;
 }
 
 :root {
-  --main-color: #dcac67;
-  --main-light-color: #f1ce87;
-  --secondary-color: #c0bfc3;
+  --primary-color: #DCAC67;
+  --primary-light-color: #F1CE87;
+  --secondary-color: #FFFFFF;
+  --secondary-dark-color: #1D1D1D;
   --text-color: #000000;
-  --text-light-color: #ffffff;
-  --background-color: #f5f5f5;
+  --text-light-color: #FFFFFF;
+  --background-color: #FFF;
   --background-dark-color: #333333;
-  --accent-color: #8b0000;
-  --accent-light-color: #ff6347;
+  --accent-color: #8B0000;
+  --accent-light-color: #FF6347;
 }
 
 [data-theme=dark] {
-  --main-color: #f1ce87;
-  --main-light-color: #dcac67;
-  --secondary-color: #555555;
-  --text-color: #ffffff;
+  --primary-color: #F1CE87;
+  --primary-light-color: #DCAC67;
+  --secondary-color: #1D1D1D;
+  --secondary-dark-color: #333333;
+  --text-color: #FFFFFF;
   --text-light-color: #000000;
   --background-color: #333333;
-  --background-dark-color: #000000;
-  --accent-color: #ff6347;
-  --accent-light-color: #8b0000;
+  --background-dark-color: #1D1D1D;
+  --accent-color: #FF6347;
+  --accent-light-color: #8B0000;
 }
 
 .header {
-  background-color: var(--main-color);
+  background-color: var(--primary-color);
   display: flex;
   align-items: center;
   height: 50px;
@@ -365,7 +369,7 @@ template {
 .header__logo {
   display: inherit;
   justify-content: center;
-  width: 50px;
+  min-width: 50px;
 }
 .header__logo img {
   height: 40px;
@@ -388,7 +392,7 @@ template {
 .header__menu-toggle .bar {
   width: 25px;
   height: 3px;
-  background-color: #3f3f3f;
+  background-color: var(--secondary-color);
   margin: 2.5px 0;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -401,7 +405,7 @@ template {
 }
 .header__menu-toggle {
   display: none;
-  margin-right: 25px;
+  width: 50px;
 }
 .header__menu-toggle:hover {
   cursor: pointer;
@@ -410,12 +414,13 @@ template {
   .header__menu-toggle {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
   }
 }
 .header__menu-title {
   display: none;
-  font-size: 25px;
+  font-size: 20px;
+  color: var(--secondary-color);
 }
 @media only screen and (max-width: 600px) {
   .header__menu-title {
@@ -423,7 +428,6 @@ template {
     width: 100%;
     justify-content: center;
     align-items: center;
-    color: #000;
   }
 }
 .header__nav {
@@ -442,7 +446,7 @@ template {
     justify-content: start;
     top: 50px;
     left: -100%;
-    background-color: var(--main-color);
+    background-color: var(--primary-color);
     height: calc(100vh - 50px);
     transform: translateX(-100%);
     transition: transform 0.3s ease;
@@ -457,12 +461,20 @@ template {
   left: 0;
 }
 .header__nav-link {
-  color: #000;
+  color: var(--secondary-color);
   text-decoration: none;
   transition: color 0.3s ease-out;
+  display: block;
+  cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+  .header__nav-link {
+    padding: 20px 16px;
+  }
 }
 .header__nav-link:hover {
   color: var(--accent-color);
+  background-color: var(--primary-color);
 }
 .header__nav-link--active {
   pointer-events: none;
@@ -470,14 +482,15 @@ template {
   font-weight: bold;
 }
 .header__nav-item {
-  font-size: 25px;
+  font-size: 20px;
 }
 @media only screen and (max-width: 600px) {
   .header__nav-item {
-    padding: 15px;
+    border-top: var(--secondary-color) 1px solid;
+    width: 100%;
   }
   .header__nav-item:first-child {
-    margin-top: 50px;
+    margin-top: 20px;
   }
 }
 .header__nav-toggle--mobile {
@@ -517,7 +530,7 @@ template {
 .footer {
   padding: 20px;
   text-align: center;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-light-color);
   color: var(--text-color);
   display: flex;
   flex-direction: column;
@@ -557,7 +570,7 @@ template {
   color: var(--text-color);
 }
 .home a {
-  color: var(--main-color);
+  color: var(--primary-color);
 }
 .home a:hover {
   color: var(--accent-color);
@@ -575,7 +588,7 @@ template {
   color: var(--text-color);
 }
 .sport a {
-  color: var(--main-color);
+  color: var(--primary-color);
 }
 .sport a:hover {
   color: var(--accent-color);
@@ -593,7 +606,7 @@ template {
   color: var(--text-color);
 }
 .shop a {
-  color: var(--main-color);
+  color: var(--primary-color);
 }
 .shop a:hover {
   color: var(--accent-color);
@@ -608,6 +621,10 @@ template {
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+:root {
+  font-family: "MuseoSans", sans-serif;
 }
 
 /*# sourceMappingURL=main.css.map */
