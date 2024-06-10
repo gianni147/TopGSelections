@@ -2,7 +2,7 @@
 @import '../common/mixins';
 
 .header {
-  background-color: var(--main-color);
+  background-color: var(--primary-color);
   display: flex;
   align-items: center;
   height: 50px;
@@ -11,7 +11,7 @@
   &__logo {
     display: inherit;
     justify-content: center;
-    width: 50px;
+    min-width: 50px;
 
     img {
       height: 40px;
@@ -39,7 +39,7 @@
   &__menu-toggle .bar {
     width: 25px;
     height: 3px;
-    background-color: #3f3f3f;
+    background-color: var(--secondary-color);
     margin: 2.5px 0;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -53,7 +53,7 @@
   &__menu {
     &-toggle {
       display: none;
-      margin-right: 25px;
+      width: 50px;
 
       &:hover {
         cursor: pointer;
@@ -62,20 +62,20 @@
       @include media-query('small') {
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        align-items: center;
       }
     }
 
     &-title {
       display: none;
-      font-size: 25px;
+      font-size: 20px;
+      color: var(--secondary-color);
 
       @include media-query('small') {
         display: inherit;
         width: 100%;
         justify-content: center;
         align-items: center;
-        color: #000;
       }
     }
   }
@@ -95,7 +95,7 @@
       justify-content: start;
       top: 50px;
       left: -100%;
-      background-color: var(--main-color);
+      background-color: var(--primary-color);
       height: calc(100vh - 50px);
       transform: translateX(-100%);
       transition: transform 0.3s ease;
@@ -111,12 +111,19 @@
     }
 
     &-link {
-      color: #000;
+      color: var(--secondary-color);
       text-decoration: none;
       transition: color 0.3s ease-out;
+      display: block;
+      cursor: pointer;
+
+      @include media-query('small') {
+        padding: 20px 16px;
+      }
 
       &:hover {
         color: var(--accent-color);
+        background-color: var(--primary-color);
       }
 
       &--active {
@@ -127,13 +134,14 @@
     }
 
     &-item {
-      font-size: 25px;
+      font-size: 20px;
 
       @include media-query('small') {
-        padding: 15px;
+        border-top: var(--secondary-color) 1px solid;
+        width: 100%;
 
         &:first-child {
-          margin-top: 50px;
+          margin-top: 20px;
         }
       }
     }
