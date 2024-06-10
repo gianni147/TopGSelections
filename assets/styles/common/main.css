@@ -368,8 +368,8 @@ template {
 }
 .header__logo {
   display: inherit;
-  justify-content: center;
-  min-width: 50px;
+  min-width: 60px;
+  margin-left: 5px;
 }
 .header__logo img {
   height: 40px;
@@ -378,15 +378,11 @@ template {
   opacity: 0;
 }
 .header__menu-toggle.is-active .bar:nth-child(1) {
-  -webkit-transform: translateY(8px) rotate(45deg);
   -ms-transform: translateY(8px) rotate(45deg);
-  -o-transform: translateY(8px) rotate(45deg);
   transform: translateY(8px) rotate(45deg);
 }
 .header__menu-toggle.is-active .bar:nth-child(3) {
-  -webkit-transform: translateY(-8px) rotate(-45deg);
   -ms-transform: translateY(-8px) rotate(-45deg);
-  -o-transform: translateY(-8px) rotate(-45deg);
   transform: translateY(-8px) rotate(-45deg);
 }
 .header__menu-toggle .bar {
@@ -507,6 +503,7 @@ template {
 }
 .header__nav-toggle--desktop {
   display: flex;
+  margin-right: 5px;
 }
 @media only screen and (max-width: 600px) {
   .header__nav-toggle--desktop {
@@ -515,16 +512,93 @@ template {
 }
 
 .theme-toggle {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  .theme-toggle {
+    display: block;
+    background-color: var(--accent-color);
+    color: var(--text-light-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 50px;
+  }
+  .theme-toggle:hover {
+    background-color: var(--accent-light-color);
+  }
+}
+
+.toggle-switch {
+  position: relative;
+  width: 60px;
+  display: inline-block;
+}
+@media only screen and (max-width: 600px) {
+  .toggle-switch {
+    margin-top: 20px;
+  }
+}
+.toggle-switch .toggle-switch-checkbox {
+  display: none;
+}
+.toggle-switch .toggle-switch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid var(--accent-color);
+  border-radius: 20px;
+}
+.toggle-switch .toggle-switch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.toggle-switch .toggle-switch-inner:before, .toggle-switch .toggle-switch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 20px;
+  padding: 0;
+  line-height: 20px;
+  font-size: 14px;
+  color: var(--text-light-color);
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.toggle-switch .toggle-switch-inner:before {
+  content: "";
+  padding-left: 10px;
   background-color: var(--accent-color);
   color: var(--text-light-color);
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  width: 50px;
 }
-.theme-toggle:hover {
+.toggle-switch .toggle-switch-inner:after {
+  content: "";
+  padding-right: 10px;
   background-color: var(--accent-light-color);
+  color: var(--text-light-color);
+  text-align: right;
+}
+.toggle-switch .toggle-switch-switch {
+  display: block;
+  width: 18px;
+  margin: 1px;
+  background: var(--text-light-color);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 38px;
+  border: 2px solid var(--accent-color);
+  border-radius: 20px;
+  transition: all 0.3s ease-in 0s;
+}
+.toggle-switch .toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-inner {
+  margin-left: 0;
+}
+.toggle-switch .toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-switch {
+  right: 0;
 }
 
 .footer {
